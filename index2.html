@@ -1,0 +1,48 @@
+<html>
+<head>
+    <title>VU22CSEN0100110</title>
+    <script>
+        function generateTable() {
+            const number = document.getElementById("numberInput").value;
+            if (number === "" || isNaN(number)) {
+                alert("Please enter a valid number.");
+                return;
+            }
+            let result = "";
+            for (let i = 1; i <= 10; i++) {
+                result += `${number} x ${i} = ${number * i}<br>`;
+            }
+            document.getElementById("tableOutput").innerHTML = result;
+        }
+
+        function calculateSum() {
+            const n = prompt("Enter how many numbers you want to sum:");
+            if (n === null || isNaN(n) || n <= 0) {
+                alert("Please enter a valid positive number.");
+                return;
+            }
+
+            let sum = 0;
+            for (let i = 1; i <= n; i++) {
+                const input = prompt(`Enter number ${i}:`);
+                if (input === null || isNaN(input)) {
+                    alert("Invalid input. Please enter a number.");
+                    return;
+                }
+                sum += parseFloat(input);
+            }
+            alert(`The total sum is: ${sum}`);
+        }
+    </script>
+</head>
+<body bgcolor="red">
+    <h2>Multiplication Table</h2>
+    <input type="number" id="numberInput" placeholder="Enter a number">
+    <button onclick="generateTable()">Generate Table</button>
+    <div id="tableOutput"></div>
+
+    <h2>Sum of Numbers</h2>
+    <button onclick="calculateSum()">Calculate Sum</button>
+</body>
+</html>
+
